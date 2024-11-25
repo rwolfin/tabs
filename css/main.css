@@ -1,0 +1,60 @@
+/* Базовые стили для всего виджета */
+.item-tabs {
+	display: block;
+	background-color: #ffffff;
+	border: 0px solid #ffffff;
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+/* Внутренние отступы и граница для области содержимого */
+.item-content {
+	padding: 16px;
+}
+
+/* Скрываем радиокнопки */
+.item-tab {
+	display: none;
+}
+
+/* По умолчанию область контента каждой конкретной вкладки скрыта */
+.item-area {
+	display: none;
+}
+
+/* Стили для параграфа внутри области контента */
+.item-area p {
+	margin-bottom: 16px;
+}
+
+/* Стилизация одной вкладки */
+.item-label {
+	display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+	padding: 15px 30px;
+	margin: 0;
+	background-color: #F5F5F5;
+	color: #000000;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	cursor: pointer;
+}
+
+/* Изменение цвета вкладки при наведении курсора */
+.item-label:hover {
+	background-color: #cccccc;
+}
+
+/* Меням цвет вкладки, если она выбрана */
+.item-tab:checked+.item-label {
+	background-color: #ffffff;
+}
+
+/* Если конкретная вкладка (радиокнопка) выбрана, то ищем соседний элемент с классом .item-content, в котором отображаем блок с data-атрибутом, соответствующим id активной вкладки */
+.item-tabs #item-tab-1:checked~.item-content .item-area[data-tab="item-tab-1"],
+.item-tabs #item-tab-2:checked~.item-content .item-area[data-tab="item-tab-2"],
+.item-tabs #item-tab-3:checked~.item-content .item-area[data-tab="item-tab-3"],
+.item-tabs #item-tab-4:checked~.item-content .item-area[data-tab="item-tab-4"] {
+	display: block;
+}
